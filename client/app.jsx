@@ -1,8 +1,17 @@
 import React from 'react';
-import Home from './components/navbar';
+import NavBar from './components/navbar';
+import AboutMe from './pages/about-me';
 
 export default class App extends React.Component {
   render() {
-    return <Home />;
+    return (
+      <>
+        <NavBar />
+        <div id='about-me'>
+          <AboutMe />
+        </div>
+        <div id='technologies' />
+      </>
+    );
   }
 }
