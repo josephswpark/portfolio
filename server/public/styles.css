@@ -14,6 +14,93 @@ a:hover {
   text-decoration: underline;
 }
 
-body {
+html {
+  scroll-behavior: smooth;
+}
+
+.v1 {
+  border-left: 3px solid #597161;
+  height: 350px;
+  width: 90px;
+}
+
+.img-circle {
+  background-color: #597161;
+  border-radius: 50%;
+  width: 365px;
+  height: 365px;
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.about-me {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10vh 6vw;
+  min-height: 100vh;
   background: #e3ded9;
+}
+
+.technologies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* align-items: center; */
+  justify-content: center;
+  min-height: 100vh;
+}
+
+svg {
+  margin-right: 1rem;
+}
+
+.svg-container {
+  width: auto;
+  height: auto;
+  max-width: 100%;
 }
