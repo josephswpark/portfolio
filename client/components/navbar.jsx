@@ -10,6 +10,7 @@ import { createTheme } from '@mui/material/styles';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+// import Container from '@mui/material/Container';
 
 const theme = createTheme({
   palette: {
@@ -43,15 +44,23 @@ export default class navBar extends React.Component {
   render() {
 
     return (
-      <Box sx = {{ display: 'flex' }} >
+      <Box sx = {{ display: 'flex' }}>
         <AppBar component="nav" theme={theme} color='primary' >
-          <Toolbar style={{ justifyContent: 'flex-end' }}>
+
+          <Toolbar style={{ justifyContent: 'space-between' }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: { sm: 'none' } }}
+            >
+              JP
+            </Typography>
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="end"
               onClick={this.isOpen}
-              sx={{ mr: 2, display: { sm: 'none' } }}
+              sx={{ mr: 0, display: { sm: 'none' } }}
             >
               <MenuIcon />
             </IconButton>
@@ -76,12 +85,11 @@ export default class navBar extends React.Component {
         <Box component="nav" >
           <Drawer PaperProps={{ sx: { backgroundColor: '#e3ded9' } }}
           anchor='top'
-            // container={container}
             variant="temporary"
             open={this.state.mobileOpen}
             onClose={this.isClose}
             ModalProps={{
-              keepMounted: true // Better open performance on mobile.
+              keepMounted: true
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
@@ -110,7 +118,6 @@ export default class navBar extends React.Component {
           </Drawer>
         </Box>
       </Box >
-
     );
   }
 }
