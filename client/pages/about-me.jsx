@@ -1,7 +1,8 @@
 import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'; import Grid from '@mui/material/Grid';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Grid from '@mui/material/Grid';
 import Image from '../../server/public/me2.png';
 import Typewriter from 'typewriter-effect';
 import IconButton from '@mui/material/IconButton';
@@ -17,7 +18,7 @@ export default class AboutMe extends React.Component {
         <Container component="main" sx={{ p: 3 }} maxWidth='lg' >
           <Toolbar />
           <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs style={{ maxWidth: '500px' }}>
+            <Grid item xs style={{ maxWidth: 500 }}>
               <div className='img-circle'>
                 <center><img src={Image} style={{ height: 350, width: 350, marginTop: '0.5rem' }} /></center>
               </div>
@@ -70,15 +71,9 @@ export default class AboutMe extends React.Component {
             </li>
           </ul>
         </Box>
-
-        <Container component="main" sx={{ mt: 15 }} maxWidth='sm'>
-          <Grid component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} style={{ textAlign: 'center' }}>
-            {/* <p>Projects</p> */}
-            <div className='arrow bounce'>
-              <KeyboardArrowDownIcon/>
-            </div>
-          </Grid>
-        </Container>
+        <Grid component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} style={{ textAlign: 'center' }} className='arrow bounce'>
+          <KeyboardArrowDownIcon/>
+        </Grid>
       </>
     );
   }

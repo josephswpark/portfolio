@@ -11,8 +11,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
-  text-decoration-color: #ab4e4f;
+  border-bottom: 3px solid #ab4e4f;
 }
 
 html {
@@ -84,8 +83,6 @@ html {
   justify-content: space-around;
   padding: 10vh 6vw;
   min-height: 100vh;
-
-  /* background: #e3ded9; */
 }
 
 .technologies {
@@ -95,8 +92,6 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
-  /* background-color: #597161; */
 }
 
 svg {
@@ -112,7 +107,7 @@ svg {
 .logo-button:hover {
   color: #ab4e4f;
   font-size: 3rem;
-  transition: 0.1s ease-out;
+  transition: 0.2s ease-out;
 }
 
 .bounce {
@@ -140,60 +135,25 @@ svg {
   }
 }
 
-@keyframes bounce {
-  0% {
-    bottom: 0;
-  }
-
-  50% {
-    bottom: 15px;
-  }
-
-  100% {
-    bottom: 30;
-  }
-}
-
-@keyframes bounce {
-  0% {
-    bottom: 0;
-  }
-
-  50% {
-    bottom: 15px;
-  }
-
-  100% {
-    bottom: 30;
-  }
-}
-
-@keyframes bounce {
-  0% {
-    bottom: 0;
-  }
-
-  50% {
-    bottom: 15px;
-  }
-
-  100% {
-    bottom: 30;
-  }
-}
-
 .me {
   line-height: 1.3rem;
 }
 
-/* .resume {
-  color: black;
-  border: solid 1px #ab4e4f;
-  padding: 0.3rem;
-  border-radius: 0.4rem;
-} */
+.projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10vh 6vw;
+  min-height: 100vh;
+}
 
-/* .resume:hover {
-  background-color: #ab4e4f;
-  color: white;
-} */
+.launch-icon {
+  margin-top: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.launch-icon:hover {
+  color: #ab4e4f;
+}

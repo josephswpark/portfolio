@@ -88,19 +88,15 @@ export default class navBar extends React.Component {
                 </li>
                 <li>
                   <a id='link' href='#profile' onClick={this.setActiveLink}>Profile</a>
-                  <div className="underline" />
                 </li>
                 <li>
                   <a id='link' href='#projects'>Projects</a>
-                  <div className="underline" />
                 </li>
                 <li >
                   <a id='link' href='#technologies' onClick={this.setActiveLink}>Technologies</a>
-                  <div className="underline" />
                 </li>
                 <li >
                   <a id='link' href='#contact-me'>Contact Me</a>
-                  <div className="underline" />
                 </li>
               </ul>
             </Box>
