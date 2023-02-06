@@ -51,7 +51,7 @@ export default class AboutMe extends React.Component {
                   nature drives me to continuously learn and grow 📚.
                 </p>
                 <p>
-                  In my free time, I like to play basketball 🏀 and exploring new dining experiences!
+                  In my free time, I enjoy playing basketball 🏀 and exploring new dining experiences!
                 </p>
               </Grid>
             </div>

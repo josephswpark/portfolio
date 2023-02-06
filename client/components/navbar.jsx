@@ -11,6 +11,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Grid from '@mui/material/Grid';
 import Logo from '../../server/public/P.png';
+import Resume from '../../server/public/resume.pdf';
 
 const theme = createTheme({
   palette: {
@@ -30,10 +31,12 @@ export default class navBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobileOpen: false
+      mobileOpen: false,
+      activeLink: 'profile'
     };
     this.isOpen = this.isOpen.bind(this);
     this.isClose = this.isClose.bind(this);
+    this.setActiveLink = this.setActiveLink.bind(this);
   }
 
   isOpen() {
@@ -42,6 +45,13 @@ export default class navBar extends React.Component {
 
   isClose() {
     this.setState({ mobileOpen: false });
+  }
+
+  // onClick() {
+
+  // }
+  setActiveLink() {
+    this.setState({ activeLink: 'technologies' });
   }
 
   render() {
@@ -70,9 +80,14 @@ export default class navBar extends React.Component {
               <img src={Logo} style={{ width: 150, paddingTop: '0.5rem' }} />
             </Grid>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
-              <ul style={{ display: 'flex' }} className='topnav'>
-                <li >
-                  <a id='link' href='#profile'>Profile</a>
+              <ul style={{ display: 'flex' }} >
+                <li>
+                  <a href={Resume} target="_blank" rel="noreferrer" className='resume'>
+                    Resume
+                  </a>
+                </li>
+                <li>
+                  <a id='link' href='#profile' onClick={this.setActiveLink}>Profile</a>
                   <div className="underline" />
                 </li>
                 <li>
@@ -80,7 +95,7 @@ export default class navBar extends React.Component {
                   <div className="underline" />
                 </li>
                 <li >
-                  <a id='link' href='#technologies'>Technologies</a>
+                  <a id='link' href='#technologies' onClick={this.setActiveLink}>Technologies</a>
                   <div className="underline" />
                 </li>
                 <li >
