@@ -23,6 +23,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(otf|pdf)$/,
+        loader: 'file-loader'
+      },
+
+      {
         test: /\.(jpe?g|gif|png|svg)$/i,
         use: [
           {
