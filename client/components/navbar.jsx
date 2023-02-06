@@ -5,12 +5,12 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-// import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Logo from '../../server/public/P.png';
 
 const theme = createTheme({
   palette: {
@@ -19,6 +19,9 @@ const theme = createTheme({
     },
     secondary: {
       main: '#e3ded9'
+    },
+    third: {
+      main: '#ffff'
     }
   }
 });
@@ -45,16 +48,11 @@ export default class navBar extends React.Component {
 
     return (
       <Box sx = {{ display: 'flex' }}>
-        <AppBar component="nav" theme={theme} color='primary' >
-
-          <Toolbar style={{ justifyContent: 'space-between' }}>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, display: { sm: 'none' } }}
-            >
-              JP
-            </Typography>
+        <AppBar component="nav" theme={theme} color='third' elevation={0}>
+          <Toolbar style={{ justifyContent: 'space-between' }} >
+            <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
+              <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }}/>
+            </Grid>
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -64,19 +62,31 @@ export default class navBar extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
+            <Grid
               variant="h6"
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             >
-              JP
-            </Typography>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <ul style={{ display: 'flex' }}>
-                <li><a id='link' href='#about-me'>About Me</a></li>
-                <li><a id='link' href='#technologies'>Technologies</a></li>
-                <li><a id='link' href='#projects'>Projects</a></li>
-                <li><a id='link' href='#contact-me'>Contact Me</a></li>
+              <img src={Logo} style={{ width: 150, paddingTop: '0.5rem' }} />
+            </Grid>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
+              <ul style={{ display: 'flex' }} className='topnav'>
+                <li >
+                  <a id='link' href='#profile'>Profile</a>
+                  <div className="underline" />
+                </li>
+                <li>
+                  <a id='link' href='#projects'>Projects</a>
+                  <div className="underline" />
+                </li>
+                <li >
+                  <a id='link' href='#technologies'>Technologies</a>
+                  <div className="underline" />
+                </li>
+                <li >
+                  <a id='link' href='#contact-me'>Contact Me</a>
+                  <div className="underline" />
+                </li>
               </ul>
             </Box>
           </Toolbar>
@@ -98,7 +108,7 @@ export default class navBar extends React.Component {
           >
             <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: '2rem' }}>
               <ul>
-                <li style={{ marginBottom: '1rem' }}><a id='link' href='#about-me' style={{ color: 'black' }}>About Me</a></li>
+                <li style={{ marginBottom: '1rem' }}><a id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
                 <li style={{ marginBottom: '1rem' }}><a id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
                 <li style={{ marginBottom: '1rem' }}><a id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
                 <li style={{ marginBottom: '1rem' }}><a id='link' href='#contact-me' style={{ color: 'black' }}>Contact Me</a></li>
