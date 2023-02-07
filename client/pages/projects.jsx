@@ -2,71 +2,76 @@ import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import IconButton from '@mui/material/IconButton';
-import Img from '../../server/public/home-image.jpeg';
-import Binge from '../../server/public/binge-1.jpg';
 import LaunchIcon from '@mui/icons-material/Launch';
+import SneakerGif from '../../server/public/sneaker-video.gif';
+import BingeGif from '../../server/public/binge-gif.gif';
 
 export default class Projects extends React.Component {
   render() {
     return (
       <>
-        <Container component="main" sx={{ p: 3 }} maxWidth='lg' >
+        <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
           <Toolbar />
-          <Grid style={{ }}>
-            <h2>Projects</h2>
-            <p style={{ marginBottom: '3rem' }}>
-              These are some personal projects that were inspired by my interests.<br/>
-              Feel free to browse through the website!
-            </p>
-          </Grid>
-          <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='flex-start' alignItems='center'>
-            <Grid item xs style={{ maxWidth: 390 }} >
-              <img src={Img} style={{ width: 350, height: 225, borderRadius: '1rem' }}/>
-              <div style={{ display: 'flex', lineHeight: '0.5rem' }}>
-                <h3>Sneaker World</h3>
-                <a href='https://sneaker-world.josephswpark.dev/' target='_blank' rel="noreferrer">
-                  <LaunchIcon className='launch-icon'/>
-                </a>
-              </div>
-              <p style={{ maxWidth: 300, marginTop: 0 }}>
-                A web application for clients to purchase sneakers of their choice.
-              </p>
+          <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='space-between' alignItems='center'>
+            <Grid item xs style={{ maxWidth: 500 }}>
+              <center><img src={SneakerGif} className='sneaker'/></center>
             </Grid>
             <div style={{ display: 'flex' }}>
-              <Grid item xs style={{ maxWidth: 390 }} >
-                <img src={Binge} style={{ width: 350, height: 225, borderRadius: '1rem' }} />
+              <Grid item xs={12} style={{ maxWidth: 550 }}>
                 <div style={{ display: 'flex', lineHeight: '0.5rem' }}>
-                  <h3>Binge</h3>
-                  <a href='https://josephswpark.github.io/binge/' target='_blank' rel="noreferrer">
-                    <LaunchIcon className='launch-icon' />
+                  <h3>Sneaker World</h3>
+                  <a href='https://sneaker-world.josephswpark.dev/' target='_blank' rel="noreferrer">
+                    <LaunchIcon className='launch-icon' fontSize='small'/>
                   </a>
                 </div>
-                <p style={{ maxWidth: 300, marginTop: 0 }}>
-                  A web application for clients to purchase sneakers of their choice.
+                <p style={{ marginTop: 0 }}>
+                  A web-based eCommerce platform built using React.js, JavaScript, HTML, and CSS, designed for purchasing sneakers
                 </p>
+                <ul className='me'>
+                  <li>
+                    <p>Implemented Stripe API for secure and efficient payment processing</p>
+                  </li>
+                  <li><p>Incorporated Material UI components to create aesthetical front-end design on all device types, using UX
+                    best practices</p></li>
+                  <li><p>Utilized PostgreSQL for database management and implemented back-end and front-end functionality.</p></li>
+                  <li><p>Built user authentication and authorization features using JSON Web Tokens (JWT)</p></li>
+                  <li><p>Implemented CRUD (Create, Read, Update, Delete) functionalities for product management and order
+                    processing</p></li>
+                </ul>
               </Grid>
             </div>
           </Grid>
         </Container>
+        <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
+          <Toolbar />
+          <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='space-between' alignItems='center'>
+            <div style={{ display: 'flex' }}>
+              <Grid item xs={12} style={{ maxWidth: 550 }} className='paper'>
+                <div className='background-paper'>
+                  <div style={{ display: 'flex', lineHeight: '0.5rem' }}>
+                    <h3>Binge</h3>
+                    <a href='https://josephswpark.github.io/binge/' target='_blank' rel="noreferrer">
+                      <LaunchIcon className='launch-icon' fontSize='small' />
+                    </a>
+                  </div>
+                  <p style={{ marginTop: 0 }}>
+                    A web platform built using JavaScript, HTML, and CSS, that allows you to search and save your favorite TV shows through interacting with an API.                  </p>
+                  <ul className='me'>
+                    <li>
+                      <p>Asynchronously retrieved data from public API (WATCHMODE) using jQuery&amp;s Ajax method, sending data from successful responses to populate a summary of each TV show searched.</p>
+                    </li>
+                    <li><p>
+                      Designed wireframes using Figma to be used as guidance ater each component have been coded.</p></li>
+                  </ul>
+                </div>
+              </Grid>
+            </div>
+            <Grid item xs style={{ maxWidth: 500 }}>
+              <center><img src={BingeGif} className='sneaker' /></center>
+            </Grid>
+          </Grid>
+        </Container>
 
-        <Box sx={{ display: { xs: 'none', sm: 'block' }, maxHeight: 500 }}>
-          <ul style={{ display: 'block', justifyContent: 'center' }}>
-            <li style={{ marginBottom: '1.5rem' }}><IconButton disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
-              <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
-            </li>
-            <li style={{ marginBottom: '1.5rem' }}><IconButton disableRipple href="https://github.com/josephswpark" target="_blank">
-              <GitHubIcon fontSize='large' className='logo-button' /></IconButton>
-            </li>
-            <li ><IconButton disableRipple href="mailto:park.josephsw@gmail.com?subjust=subject text">
-              <MailOutlineIcon fontSize='large' className='logo-button' /></IconButton>
-            </li>
-          </ul>
-        </Box>
       </>
     );
   }

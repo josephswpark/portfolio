@@ -10,21 +10,18 @@ import express from '../../server/public/express.png';
 import material from '../../server/public/material.png';
 import sql from '../../server/public/sql.png';
 
+const lang = [js, react, node, html, css, sql, express, material];
+
 export default class Technology extends React.Component {
   render() {
     return (
-      <Container component="main" sx={{ p: 3 }} maxWidth='md' >
-        <Toolbar/>
+      <Container component="main" maxWidth='md' >
         <center><h1>Technologies</h1></center>
-        <center>
-          <img src={js} style={{ width: 150, height: 150 }}/>
-          <img src={react} style={{ width: 150, height: 150 }} />
-          <img src={node} style={{ width: 150, height: 150 }} />
-          <img src={html} style={{ width: 150, height: 150 }} />
-          <img src={css} style={{ width: 150, height: 150 }} />
-          <img src={sql} style={{ width: 150, height: 150 }} />
-          <img src={express} style={{ width: 200, height: 150 }} />
-          <img src={material} style={{ width: 150, height: 150 }} />
+        <Toolbar/>
+        <center style={{ justifyContent: 'space-evenly', marginLeft: '1rem' }}>
+          {lang.map((item, index) =>
+            <img src={item} key={index} className='circle'/>
+          )}
         </center>
       </Container>
     );

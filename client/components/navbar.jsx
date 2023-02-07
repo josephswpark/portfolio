@@ -81,21 +81,21 @@ export default class navBar extends React.Component {
             </Grid>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
               <ul style={{ display: 'flex' }} >
-                <li>
+                <li className='navbar-options'>
                   <a href={Resume} target="_blank" rel="noreferrer" className='navbar'>
                     Resume
                   </a>
                 </li>
-                <li>
+                <li className='navbar-options'>
                   <a id='link' href='#profile' className='navbar'>Profile</a>
                 </li>
-                <li>
+                <li className='navbar-options'>
                   <a id='link' href='#projects' className='navbar'>Projects</a>
                 </li>
-                <li >
+                <li className='navbar-options'>
                   <a id='link' href='#technologies' className='navbar'>Technologies</a>
                 </li>
-                <li >
+                <li className='navbar-options'>
                   <a id='link' href='#contact-me' className='navbar'>Contact Me</a>
                 </li>
               </ul>
@@ -125,13 +125,13 @@ export default class navBar extends React.Component {
                 <li style={{ marginBottom: '1rem' }}><a id='link' href='#contact-me' style={{ color: 'black' }}>Contact Me</a></li>
               </ul>
               <ul style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
-                <li ><IconButton href="https://www.linkedin.com/in/josephswpark/" target="_blank">
+                <li className='navbar-options'><IconButton href="https://www.linkedin.com/in/josephswpark/" target="_blank">
                   <LinkedInIcon fontSize='large' /></IconButton>
                 </li>
-                <li ><IconButton href="https://github.com/josephswpark" target="_blank">
+                <li className='navbar-options'><IconButton href="https://github.com/josephswpark" target="_blank">
                   <GitHubIcon fontSize='large' /></IconButton>
                 </li>
-                <li ><IconButton href="mailto:park.josephsw@gmail.com?subjust=subject text">
+                <li className='navbar-options'><IconButton href="mailto:park.josephsw@gmail.com?subjust=subject text">
                   <MailOutlineIcon fontSize='large' /></IconButton>
                 </li>
               </ul>
