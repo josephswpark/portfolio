@@ -36,7 +36,6 @@ export default class navBar extends React.Component {
     };
     this.isOpen = this.isOpen.bind(this);
     this.isClose = this.isClose.bind(this);
-    this.setActiveLink = this.setActiveLink.bind(this);
   }
 
   isOpen() {
@@ -45,13 +44,6 @@ export default class navBar extends React.Component {
 
   isClose() {
     this.setState({ mobileOpen: false });
-  }
-
-  // onClick() {
-
-  // }
-  setActiveLink() {
-    this.setState({ activeLink: 'technologies' });
   }
 
   render() {
@@ -96,13 +88,12 @@ export default class navBar extends React.Component {
                   <a id='link' href='#technologies' className='navbar'>Technologies</a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#contact-me' className='navbar'>Contact Me</a>
+                  <a id='link' href='#contact' className='navbar'>Contact Me</a>
                 </li>
               </ul>
             </Box>
           </Toolbar>
         </AppBar>
-
         <Box component="nav" >
           <Drawer PaperProps={{ sx: { backgroundColor: '#e3ded9' } }}
           anchor='top'
@@ -119,20 +110,25 @@ export default class navBar extends React.Component {
           >
             <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: '2rem' }}>
               <ul>
-                <li style={{ marginBottom: '1rem' }}><a id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
-                <li style={{ marginBottom: '1rem' }}><a id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
-                <li style={{ marginBottom: '1rem' }}><a id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
-                <li style={{ marginBottom: '1rem' }}><a id='link' href='#contact-me' style={{ color: 'black' }}>Contact Me</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}>
+                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar' >
+                    Resume
+                  </a>
+                </li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>
               </ul>
-              <ul style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
-                <li className='navbar-options'><IconButton href="https://www.linkedin.com/in/josephswpark/" target="_blank">
-                  <LinkedInIcon fontSize='large' /></IconButton>
+              <ul style={{ display: 'flex', marginLeft: '1.5rem', marginTop: '0.5rem', justifyContent: 'center' }}>
+                <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
+                  <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
                 </li>
-                <li className='navbar-options'><IconButton href="https://github.com/josephswpark" target="_blank">
-                  <GitHubIcon fontSize='large' /></IconButton>
+                <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://github.com/josephswpark" target="_blank">
+                  <GitHubIcon fontSize='large' className='logo-button' /></IconButton>
                 </li>
-                <li className='navbar-options'><IconButton href="mailto:park.josephsw@gmail.com?subjust=subject text">
-                  <MailOutlineIcon fontSize='large' /></IconButton>
+                <li className='navbar-options'><IconButton disableRipple style={{ padding: 0 }} href="mailto:park.josephsw@gmail.com?subjust=subject text">
+                  <MailOutlineIcon fontSize='large' className='logo-button' /></IconButton>
                 </li>
               </ul>
             </Box>

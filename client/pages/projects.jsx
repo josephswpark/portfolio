@@ -12,6 +12,7 @@ export default class Projects extends React.Component {
       <>
         <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
           <Toolbar />
+          <h1 style={{ textAlign: 'center', marginBottom: '4rem' }}>Projects</h1>
           <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='space-between' alignItems='center'>
             <Grid item xs style={{ maxWidth: 500 }}>
               <center><img src={SneakerGif} className='sneaker'/></center>
@@ -71,7 +72,6 @@ export default class Projects extends React.Component {
             </Grid>
           </Grid>
         </Container>
-
       </>
     );
   }
