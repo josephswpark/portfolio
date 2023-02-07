@@ -57,9 +57,9 @@ export default class navBar extends React.Component {
   render() {
 
     return (
-      <Box sx = {{ display: 'flex' }}>
+      <Box sx = {{ display: 'flex' }} >
         <AppBar component="nav" theme={theme} color='third' elevation={0}>
-          <Toolbar style={{ justifyContent: 'space-between' }} >
+          <Toolbar style={{ justifyContent: 'space-between', marginTop: '1rem' }} >
             <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
               <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }}/>
             </Grid>
@@ -82,21 +82,21 @@ export default class navBar extends React.Component {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
               <ul style={{ display: 'flex' }} >
                 <li>
-                  <a href={Resume} target="_blank" rel="noreferrer" className='resume'>
+                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar'>
                     Resume
                   </a>
                 </li>
                 <li>
-                  <a id='link' href='#profile' onClick={this.setActiveLink}>Profile</a>
+                  <a id='link' href='#profile' className='navbar'>Profile</a>
                 </li>
                 <li>
-                  <a id='link' href='#projects'>Projects</a>
+                  <a id='link' href='#projects' className='navbar'>Projects</a>
                 </li>
                 <li >
-                  <a id='link' href='#technologies' onClick={this.setActiveLink}>Technologies</a>
+                  <a id='link' href='#technologies' className='navbar'>Technologies</a>
                 </li>
                 <li >
-                  <a id='link' href='#contact-me'>Contact Me</a>
+                  <a id='link' href='#contact-me' className='navbar'>Contact Me</a>
                 </li>
               </ul>
             </Box>

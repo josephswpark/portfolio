@@ -15,7 +15,7 @@ export default class AboutMe extends React.Component {
   render() {
     return (
       <>
-        <Container component="main" sx={{ p: 3 }} maxWidth='lg' >
+        <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
           <Toolbar />
           <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs style={{ maxWidth: 500 }}>
