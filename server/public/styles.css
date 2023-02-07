@@ -1,19 +1,202 @@
-li {
+p {
+  color: #666;
+}
+
+.navbar-options {
   list-style: none;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
   cursor: pointer;
-  color: white;
+  color: black;
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+.navbar {
+  padding-bottom: 0.25rem;
 }
 
-body {
-  background: #e3ded9;
+.navbar:hover {
+  border-bottom: 3px solid #ab4e4f;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: Lato, sans-serif;
+}
+
+.v1 {
+  border-left: 3px solid #e3ded9;
+  max-height: 500px;
+  width: 90px;
+}
+
+.img-circle {
+  background-color: #e3ded9;
+  border-radius: 50%;
+  width: 365px;
+  height: 365px;
+}
+
+.circle {
+  background-color: #e3ded9;
+  border-radius: 2rem;
+  width: 130px;
+  height: 130px;
+  padding: 0.5rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10vh 6vw;
+  min-height: 100vh;
+}
+
+.technologies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+svg {
+  margin-right: 1rem;
+}
+
+.svg-container {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.logo-button:hover {
+  color: #ab4e4f;
+  font-size: 3rem;
+  transition: 0.2s ease-out;
+}
+
+.bounce {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-top: -25px;
+  margin-left: -25px;
+  height: 50px;
+  width: 50px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 0;
+  }
+
+  50% {
+    bottom: 15px;
+  }
+
+  100% {
+    bottom: 30;
+  }
+}
+
+.me {
+  line-height: 1.3rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10vh 6vw;
+  min-height: 100vh;
+}
+
+.launch-icon {
+  margin-top: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.launch-icon:hover {
+  color: #ab4e4f;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.sneaker {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4rem;
+  border: 1rem solid black;
+}
+
+li {
+  line-height: 1.2rem;
 }

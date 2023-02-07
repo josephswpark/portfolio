@@ -1,16 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Grid from '@mui/material/Grid';
+import Logo from '../../server/public/P.png';
+import Resume from '../../server/public/resume.pdf';
 
 const theme = createTheme({
   palette: {
@@ -19,97 +20,121 @@ const theme = createTheme({
     },
     secondary: {
       main: '#e3ded9'
+    },
+    third: {
+      main: '#ffff'
     }
   }
 });
 
-function DrawerAppBar(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+export default class navBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mobileOpen: false,
+      activeLink: 'profile'
+    };
+    this.isOpen = this.isOpen.bind(this);
+    this.isClose = this.isClose.bind(this);
+  }
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(prevState => !prevState);
-  };
+  isOpen() {
+    this.setState({ mobileOpen: true });
+  }
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  isClose() {
+    this.setState({ mobileOpen: false });
+  }
 
-  return (
-    <Box sx={{ display: 'flex' }} >
-      <AppBar component="nav" theme={theme} color='primary' >
-        <Toolbar style={{ justifyContent: 'flex-end' }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+  render() {
+
+    return (
+      <Box sx = {{ display: 'flex' }} >
+        <AppBar component="nav" theme={theme} color='third' elevation={0}>
+          <Toolbar style={{ justifyContent: 'space-between', marginTop: '1rem' }} >
+            <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
+              <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }}/>
+            </Grid>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={this.isOpen}
+              sx={{ mr: 0, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Grid
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            >
+              <img src={Logo} style={{ width: 150, paddingTop: '0.5rem' }} />
+            </Grid>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
+              <ul style={{ display: 'flex' }} >
+                <li className='navbar-options'>
+                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar'>
+                    Resume
+                  </a>
+                </li>
+                <li className='navbar-options'>
+                  <a id='link' href='#profile' className='navbar'>Profile</a>
+                </li>
+                <li className='navbar-options'>
+                  <a id='link' href='#projects' className='navbar'>Projects</a>
+                </li>
+                <li className='navbar-options'>
+                  <a id='link' href='#technologies' className='navbar'>Technologies</a>
+                </li>
+                <li className='navbar-options'>
+                  <a id='link' href='#contact' className='navbar'>Contact Me</a>
+                </li>
+              </ul>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Box component="nav" >
+          <Drawer PaperProps={{ sx: { backgroundColor: '#e3ded9' } }}
+          anchor='top'
+            variant="temporary"
+            open={this.state.mobileOpen}
+            onClose={this.isClose}
+            ModalProps={{
+              keepMounted: true
+            }}
+            sx={{
+              display: { xs: 'block', sm: 'none' },
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 390, height: 300 }
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            JP
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <ul style={{ display: 'flex' }}>
-              <li><a href='#about-me' >About Me</a></li>
-              <li><a href='#tech'>Technologies</a></li>
-              <li><a href='#projects'>Projects</a></li>
-              <li><a href='#contact-me'>Contact Me</a></li>
-            </ul>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
-      <Box component="nav" >
-        <Drawer PaperProps={{ sx: { backgroundColor: '#e3ded9' } }}
-        anchor='top'
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 390, height: 300 }
-          }}
-        >
-          <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', mt: '2rem' }}>
-            <ul>
-              <li style={{ marginBottom: '1rem' }}><a href='#about-me' style={{ color: 'black' }}>About Me</a></li>
-              <li style={{ marginBottom: '1rem' }}><a href='#tech' style={{ color: 'black' }}>Technologies</a></li>
-              <li style={{ marginBottom: '1rem' }}><a href='#projects' style={{ color: 'black' }}>Projects</a></li>
-              <li style={{ marginBottom: '1rem' }}><a href='#contact-me' style={{ color: 'black' }}>Contact Me</a></li>
-            </ul>
-            <ul style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
-              <li ><IconButton href="https://www.linkedin.com/in/josephswpark/" target="_blank">
-                <LinkedInIcon fontSize='large' /></IconButton>
-              </li>
-              <li ><IconButton href="https://github.com/josephswpark" target="_blank">
-                <GitHubIcon fontSize='large' /></IconButton>
-              </li>
-              <li ><IconButton href="mailto:park.josephsw@gmail.com?subjust=subject text">
-                <MailOutlineIcon fontSize='large' /></IconButton>
-              </li>
-            </ul>
-          </Box>
-        </Drawer>
-      </Box>
-    </Box>
-  );
+            <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: '2rem' }}>
+              <ul>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}>
+                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar' >
+                    Resume
+                  </a>
+                </li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>
+              </ul>
+              <ul style={{ display: 'flex', marginLeft: '1.5rem', marginTop: '0.5rem', justifyContent: 'center' }}>
+                <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
+                  <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
+                </li>
+                <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://github.com/josephswpark" target="_blank">
+                  <GitHubIcon fontSize='large' className='logo-button' /></IconButton>
+                </li>
+                <li className='navbar-options'><IconButton disableRipple style={{ padding: 0 }} href="mailto:park.josephsw@gmail.com?subjust=subject text">
+                  <MailOutlineIcon fontSize='large' className='logo-button' /></IconButton>
+                </li>
+              </ul>
+            </Box>
+          </Drawer>
+        </Box>
+      </Box >
+    );
+  }
 }
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func
-};
-
-export default DrawerAppBar;

@@ -23,6 +23,22 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(otf|pdf)$/,
+        loader: 'file-loader'
+      },
+
+      {
+        test: /\.(jpe?g|gif|png|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000
+            }
+          }
+        ]
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
