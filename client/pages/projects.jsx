@@ -21,7 +21,7 @@ export default class Projects extends React.Component {
               <Grid item xs={12} style={{ maxWidth: 550 }}>
                 <div style={{ display: 'flex', lineHeight: '0.5rem' }}>
                   <h3>Sneaker World</h3>
-                  <a href='https://sneaker-world.josephswpark.dev/' target='_blank' rel="noreferrer">
+                  <a href='https://sneakers-world.josephswpark.dev/' target='_blank' rel="noreferrer">
                     <LaunchIcon className='launch-icon' fontSize='small'/>
                   </a>
                 </div>
