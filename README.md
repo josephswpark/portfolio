@@ -1,3 +1,3 @@
-# final-project
+# Portfolio
 
-A full stack JavaScript solo project.
+Welcome to my portfolio! Please take a look around :) 
