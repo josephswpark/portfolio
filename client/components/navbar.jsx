@@ -53,7 +53,7 @@ export default class navBar extends React.Component {
         <AppBar component="nav" theme={theme} color='third' elevation={0}>
           <Toolbar style={{ justifyContent: 'space-between', marginTop: '1rem' }} >
             <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
-              <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }}/>
+              <a id='link' href='#profile'> <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
             </Grid>
             <IconButton
               color="inherit"
@@ -69,7 +69,7 @@ export default class navBar extends React.Component {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             >
-              <img src={Logo} style={{ width: 150, paddingTop: '0.5rem' }} />
+              <a id='link' href='#profile'> <img src={Logo} style={{ width: 150, paddingTop: '0.5rem' }} /></a>
             </Grid>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
               <ul style={{ display: 'flex' }} >
@@ -95,7 +95,7 @@ export default class navBar extends React.Component {
           </Toolbar>
         </AppBar>
         <Box component="nav" >
-          <Drawer PaperProps={{ sx: { backgroundColor: '#e3ded9' } }}
+          <Drawer
           anchor='top'
             variant="temporary"
             open={this.state.mobileOpen}
@@ -120,7 +120,7 @@ export default class navBar extends React.Component {
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>
               </ul>
-              <ul style={{ display: 'flex', marginTop: '0.5rem', justifyContent: 'center', marginLeft: 0 }}>
+              <ul style={{ display: 'flex', marginTop: '1.8em', justifyContent: 'center', marginLeft: 0 }}>
                 <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
                   <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
                 </li>
