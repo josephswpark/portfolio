@@ -11,16 +11,16 @@ export default class Contact extends React.Component {
   render() {
     return (
       <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
-        <div style={{ display: 'flex', marginLeft: '2rem' }}>
+        <div style={{ display: 'flex', marginLeft: '2rem', justifyContent: 'center' }}>
           <Grid item xs={12} style={{ maxWidth: 550 }}>
-            <div style={{ display: 'flex', lineHeight: '0.5rem' }}>
-              <h3>Contact!</h3>
+            <div style={{ display: 'flex', lineHeight: '0.5rem', justifyContent: 'center' }}>
+              <h2>Connect with me!</h2>
             </div>
-            <p style={{ marginTop: 0 }}>
+            <p style={{ marginTop: 0, textAlign: 'center' }}>
               Please feel free to reach out if you have any questions, or just want to connect!
             </p>
             <Box >
-              <ul style={{ display: 'flex', paddingLeft: 0 }}>
+              <ul style={{ display: 'flex', justifyContent: 'center' }}>
                 <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
                   <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
                 </li>

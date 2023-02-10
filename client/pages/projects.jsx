@@ -13,13 +13,13 @@ export default class Projects extends React.Component {
         <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
           <Toolbar />
           <h1 style={{ textAlign: 'center', marginBottom: '4rem' }}>Projects</h1>
-          <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='space-between' alignItems='center'>
-            <Grid item xs style={{ maxWidth: 500 }}>
+          <Grid container columns={{ xs: 6, md: 12 }} direction='row' justifyContent='space-between' alignItems='center'>
+            <Grid item xs style={{ maxWidth: 500, marginRight: '1rem' }}>
               <center><img src={SneakerGif} className='sneaker'/></center>
             </Grid>
             <div style={{ display: 'flex' }}>
               <Grid item xs={12} style={{ maxWidth: 550 }}>
-                <div style={{ display: 'flex', lineHeight: '0.5rem' }}>
+                <div style={{ display: 'flex', lineHeight: '0.5rem', marginTop: '0.5rem' }}>
                   <h3>Sneaker World</h3>
                   <a href='https://sneakers-world.josephswpark.dev/' target='_blank' rel="noreferrer">
                     <LaunchIcon className='launch-icon' fontSize='small'/>
@@ -67,7 +67,7 @@ export default class Projects extends React.Component {
                 </div>
               </Grid>
             </div>
-            <Grid item xs style={{ maxWidth: 500 }}>
+            <Grid item xs style={{ maxWidth: 500, marginTop: '0.5rem' }}>
               <center><img src={BingeGif} className='sneaker' /></center>
             </Grid>
           </Grid>

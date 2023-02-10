@@ -109,7 +109,7 @@ export default class navBar extends React.Component {
             }}
           >
             <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: '2rem' }}>
-              <ul>
+              <ul style={{ paddingLeft: 0 }}>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}>
                   <a href={Resume} target="_blank" rel="noreferrer" className='navbar' >
                     Resume
@@ -120,7 +120,7 @@ export default class navBar extends React.Component {
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>
               </ul>
-              <ul style={{ display: 'flex', marginLeft: '1.5rem', marginTop: '0.5rem', justifyContent: 'center' }}>
+              <ul style={{ display: 'flex', marginTop: '0.5rem', justifyContent: 'center', marginLeft: 0 }}>
                 <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
                   <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
                 </li>
