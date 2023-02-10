@@ -5,3 +5,10 @@ set client_min_messages to warning;
 drop schema "public" cascade;
 
 create schema "public";
+
+CREATE TABLE "public"."sizes" (
+	"productId" integer NOT NULL,
+	"size" NUMERIC NOT NULL
+) WITH (
+  OIDS=FALSE
+);
