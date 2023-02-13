@@ -190,9 +190,11 @@ svg {
   justify-content: center;
 }
 
-.sneaker {
+.sneaker,
+.binge {
   max-width: 100%;
-  height: auto;
+  max-height: 780px;
+  object-fit: contain;
   border-radius: 4rem;
   border: 1rem solid black;
 }
