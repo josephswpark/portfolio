@@ -11,17 +11,21 @@ export default class Projects extends React.Component {
     return (
       <>
         <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
-          <Toolbar />
-          <h1 style={{ textAlign: 'center', marginBottom: '4rem' }}>Projects</h1>
-          <Grid container columns={{ xs: 6, md: 12 }} direction='row' justifyContent='space-between' alignItems='center'>
-            <Grid item xs style={{ maxWidth: 500, marginRight: '1rem' }}>
-              <center><img src={SneakerGif} className='sneaker'/></center>
+          <Toolbar/>
+          <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            Projects
+          </h1>
+          <Grid container columns={{ xs: 6, md: 12 }} direction='row' justifyContent='center' alignItems='center'>
+            <Grid item xs style={{ maxWidth: 500 }}>
+              <center> <a href='http://sneakers.josephswpark.com/' target='_blank' rel="noreferrer">
+                <img src={SneakerGif} className='sneaker'/>
+              </a></center>
             </Grid>
             <div style={{ display: 'flex' }}>
-              <Grid item xs={12} style={{ maxWidth: 550 }}>
+              <Grid item xs={12} style={{ maxWidth: 500, marginLeft: '1rem' }}>
                 <div style={{ display: 'flex', lineHeight: '0.5rem', marginTop: '0.5rem' }}>
                   <h3>Sneaker World</h3>
-                  <a href='https://sneakers-world.josephswpark.dev/' target='_blank' rel="noreferrer">
+                  <a href='http://sneakers.josephswpark.com/' target='_blank' rel="noreferrer">
                     <LaunchIcon className='launch-icon' fontSize='small'/>
                   </a>
                 </div>
@@ -43,33 +47,33 @@ export default class Projects extends React.Component {
             </div>
           </Grid>
         </Container>
-        <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
+        <Container component="main" sx={{ p: 0, mt: '1rem' }} maxWidth='lg' >
           <Toolbar />
-          <Grid container columns={{ xs: 4, md: 12 }} direction='row' justifyContent='space-between' alignItems='center'>
+          <Grid container columns={{ xs: 6, md: 12 }} direction='row' justifyContent='center' alignItems='center'>
+            <Grid item xs style={{ maxWidth: 500 }}>
+              <center><a href='https://josephswpark.github.io/binge/' target='_blank' rel="noreferrer">
+                <img src={BingeGif} className='binge' />
+              </a></center>
+            </Grid>
             <div style={{ display: 'flex' }}>
-              <Grid item xs={12} style={{ maxWidth: 550 }} className='paper'>
-                <div className='background-paper'>
-                  <div style={{ display: 'flex', lineHeight: '0.5rem' }}>
-                    <h3>Binge</h3>
-                    <a href='https://josephswpark.github.io/binge/' target='_blank' rel="noreferrer">
-                      <LaunchIcon className='launch-icon' fontSize='small' />
-                    </a>
-                  </div>
-                  <p style={{ marginTop: 0 }}>
-                    A web platform built using JavaScript, HTML, and CSS, that allows you to search and save your favorite TV shows through interacting with an API.                  </p>
-                  <ul className='me'>
-                    <li>
-                      <p>Asynchronously retrieved data from public API (WATCHMODE) using jQuery&amp;s Ajax method, sending data from successful responses to populate a summary of each TV show searched.</p>
-                    </li>
-                    <li><p>
-                      Designed wireframes using Figma to be used as guidance ater each component have been coded.</p></li>
-                  </ul>
+              <Grid item xs={12} style={{ maxWidth: 500, marginLeft: '1rem' }}>
+                <div style={{ display: 'flex', lineHeight: '0.5rem', marginTop: '0.5rem' }}>
+                  <h3>Binge</h3>
+                  <a href='https://josephswpark.github.io/binge/' target='_blank' rel="noreferrer">
+                    <LaunchIcon className='launch-icon' fontSize='small' />
+                  </a>
                 </div>
+                <p style={{ marginTop: 0 }}>
+                  A web platform built using JavaScript, HTML, and CSS, that allows you to search and save your favorite TV shows through interacting with an API.                  </p>
+                <ul className='me'>
+                  <li>
+                    <p>Asynchronously retrieved data from public API (WATCHMODE) using jQuery&amp;s Ajax method, sending data from successful responses to populate a summary of each TV show searched.</p>
+                  </li>
+                  <li><p>
+                    Designed wireframes using Figma to be used as guidance ater each component have been coded.</p></li>
+                </ul>
               </Grid>
             </div>
-            <Grid item xs style={{ maxWidth: 500, marginTop: '0.5rem' }}>
-              <center><img src={BingeGif} className='sneaker' /></center>
-            </Grid>
           </Grid>
         </Container>
       </>

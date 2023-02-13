@@ -46,7 +46,7 @@ export default class App extends React.Component {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary">
+    <Typography style={{ fontFamily: 'Lato' }}variant="body2" color="text.secondary">
       {'Handcrafted by Joseph Park © '}
       {' '}
       {new Date().getFullYear()}
