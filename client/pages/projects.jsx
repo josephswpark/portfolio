@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import LaunchIcon from '@mui/icons-material/Launch';
 import SneakerGif from '../../server/public/sneaker-video.gif';
 import BingeGif from '../../server/public/binge-gif.gif';
+import 'aos/dist/aos.css';
 
 export default class Projects extends React.Component {
   render() {
@@ -12,17 +13,20 @@ export default class Projects extends React.Component {
       <>
         <Container component="main" sx={{ p: 0 }} maxWidth='lg' >
           <Toolbar/>
-          <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h1 style={{ textAlign: 'center', marginBottom: '3rem' }} data-aos='fade-down'>
             Projects
           </h1>
           <Grid container columns={{ xs: 6, md: 12 }} direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs style={{ maxWidth: 500 }}>
+            <Grid item xs style={{ maxWidth: 500 }} data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine">
               <center> <a href='http://sneakers.josephswpark.com/' target='_blank' rel="noreferrer">
                 <img src={SneakerGif} className='sneaker'/>
               </a></center>
             </Grid>
-            <div style={{ display: 'flex' }}>
-              <Grid item xs={12} style={{ maxWidth: 500, marginLeft: '1rem' }}>
+            <div style={{ display: 'flex' }} data-aos='fade-left' data-aos-easing="linear"
+              data-aos-duration="500" >
+              <Grid item xs={12} style={{ maxWidth: 500, marginLeft: '1rem' }} >
                 <div style={{ display: 'flex', lineHeight: '0.5rem', marginTop: '0.5rem' }}>
                   <h3>Sneaker World</h3>
                   <a href='http://sneakers.josephswpark.com/' target='_blank' rel="noreferrer">
@@ -50,12 +54,15 @@ export default class Projects extends React.Component {
         <Container component="main" sx={{ p: 0, mt: '1rem' }} maxWidth='lg' >
           <Toolbar />
           <Grid container columns={{ xs: 6, md: 12 }} direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs style={{ maxWidth: 500 }}>
+            <Grid item xs style={{ maxWidth: 500 }} data-aos="fade-bottom"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine">
               <center><a href='https://josephswpark.github.io/binge/' target='_blank' rel="noreferrer">
                 <img src={BingeGif} className='binge' />
               </a></center>
             </Grid>
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex' }} data-aos='fade-left'
+              data-aos-duration="1000">
               <Grid item xs={12} style={{ maxWidth: 500, marginLeft: '1rem' }}>
                 <div style={{ display: 'flex', lineHeight: '0.5rem', marginTop: '0.5rem' }}>
                   <h3>Binge</h3>

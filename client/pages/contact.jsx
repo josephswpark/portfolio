@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 export default class Contact extends React.Component {
   render() {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', width: 350 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', width: 350 }} data-aos="flip-left" data-aos-duration="1500">
         <Grid item xs={12} stlye={{ width: 390 }}>
           <div style={{ display: 'flex', lineHeight: '0.5rem', justifyContent: 'center' }}>
             <h2>Connect with me!</h2>
