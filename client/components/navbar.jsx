@@ -105,7 +105,7 @@ export default class navBar extends React.Component {
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 390, height: 300 }
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', height: 300 }
             }}
           >
             <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: '2rem' }}>
@@ -115,10 +115,10 @@ export default class navBar extends React.Component {
                     Resume
                   </a>
                 </li>
-                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
-                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
-                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
-                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>
               </ul>
               <ul style={{ display: 'flex', marginTop: '1.8em', justifyContent: 'center', marginLeft: 0 }}>
                 <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">

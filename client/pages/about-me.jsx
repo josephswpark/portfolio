@@ -58,8 +58,8 @@ export default class AboutMe extends React.Component {
             </div>
           </Grid>
         </Container>
-        <Box sx={{ display: { xs: 'none', sm: 'block' }, maxHeight: 500 }}>
-          <ul style={{ display: 'block', justifyContent: 'center' }}>
+        <Box sx={{ display: { xs: 'none', xl: 'block' } }}>
+          <ul style={{ justifyContent: 'center', paddingLeft: 0, alignItems: 'center', marginBottom: 0, marginTop: '4rem' }}>
             <li style={{ marginBottom: '1.5rem' }} className='navbar-options'><IconButton disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
               <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
             </li>
