@@ -23,6 +23,9 @@ const theme = createTheme({
     },
     third: {
       main: '#ffff'
+    },
+    fourth: {
+      main: 'black'
     }
   }
 });
@@ -32,7 +35,8 @@ export default class navBar extends React.Component {
     super(props);
     this.state = {
       mobileOpen: false,
-      activeLink: 'profile'
+      activeLink: 'profile',
+      color: 'black'
     };
     this.isOpen = this.isOpen.bind(this);
     this.isClose = this.isClose.bind(this);
@@ -47,10 +51,9 @@ export default class navBar extends React.Component {
   }
 
   render() {
-
     return (
-      <Box sx = {{ display: 'flex' }} >
-        <AppBar component="nav" theme={theme} color='third' elevation={0}>
+      <Box sx={{ display: 'flex' }} >
+        <AppBar component="nav" theme={theme} color='third' elevation={0} >
           <Toolbar style={{ justifyContent: 'space-between', marginTop: '1rem' }} >
             <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
               <a id='link' href='#profile'> <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
@@ -89,6 +92,14 @@ export default class navBar extends React.Component {
                 </li>
                 <li className='navbar-options'>
                   <a id='link' href='#contact' className='navbar'>Contact Me</a>
+                </li>
+                <li className='navbar-options'>
+                  <label role="button" htmlFor="checkbox" className="switch">
+                    <input type="checkbox" id="checkbox" />
+                    <span className="switch__ball" />
+                    <i className="ri-sun-line switch__sun" />
+                    <i className="ri-moon-line switch__moon" />
+                  </label>
                 </li>
               </ul>
             </Box>

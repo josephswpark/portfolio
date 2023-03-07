@@ -10,10 +10,28 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: '',
+      textColor: ''
+    };
+    this.colorChange = this.colorChange.bind(this);
+  }
+
+  colorChange() {
+    if (this.state.color === '') {
+      this.setState({ color: 'black' });
+    } else {
+      this.setState({ color: '' });
+      this.setState({ textColor: 'white' });
+    }
+  }
+
   render() {
     return (
-      <>
-        <NavBar />
+      <div style={{ backgroundColor: this.state.color }} onChange={this.colorChange}>
+        <NavBar onChange={{ backgroundColor: this.state.color }} />
         <ActiveItem >
           <div id='profile' className='profile'>
             <AboutMe />
@@ -21,7 +39,7 @@ export default class App extends React.Component {
           <div id='projects' className='projects'>
             <Projects />
           </div>
-          <div id='technologies' className='technologies'>
+          <div id='technologies' className='technologies' onChange={{ color: this.state.textColor }}>
             <Technologies />
           </div>
           <div id='contact' className='contact'>
@@ -39,7 +57,7 @@ export default class App extends React.Component {
             </Container>
           </Box>
         </ActiveItem>
-      </>
+      </div>
     );
   }
 }
