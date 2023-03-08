@@ -12,6 +12,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Grid from '@mui/material/Grid';
 import Logo from '../../server/public/P.png';
 import Resume from '../../server/public/resume.pdf';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const theme = createTheme({
   palette: {
@@ -23,19 +24,33 @@ const theme = createTheme({
     },
     third: {
       main: '#ffff'
+    },
+    fourth: {
+      main: 'black'
     }
   }
 });
+
+const styles = {
+  xIcon: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginTop: '0.5rem',
+    marginRight: 0
+  }
+};
 
 export default class navBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       mobileOpen: false,
-      activeLink: 'profile'
+      activeLink: 'profile',
+      color: ''
     };
     this.isOpen = this.isOpen.bind(this);
     this.isClose = this.isClose.bind(this);
+    this.changeColor = this.changeColor.bind(this);
   }
 
   isOpen() {
@@ -46,23 +61,46 @@ export default class navBar extends React.Component {
     this.setState({ mobileOpen: false });
   }
 
-  render() {
+  changeColor() {
+    const header = document.querySelector('.header');
+    const textColor = document.querySelector('#root');
+    const color = document.querySelector('.navbar-options');
+    const footer = document.querySelector('.footer');
+    const icons = document.querySelectorAll('#logo');
+    const body = document.querySelector('body');
+    header.classList.toggle('dark');
+    textColor.classList.toggle('white-text');
+    color.classList.toggle('white-text');
+    footer.classList.toggle('white-text');
+    body.classList.toggle('dark');
 
+    icons.forEach(i => {
+      i.classList.toggle('white-text');
+    });
+
+    if (this.state.color === '') {
+      this.setState({ color: 'white' });
+    } else {
+      this.setState({ color: '' });
+    }
+  }
+
+  render() {
     return (
-      <Box sx = {{ display: 'flex' }} >
-        <AppBar component="nav" theme={theme} color='third' elevation={0}>
-          <Toolbar style={{ justifyContent: 'space-between', marginTop: '1rem' }} >
+      <Box sx={{ display: 'flex' }} >
+        <AppBar component="nav" theme={theme} color='third' elevation={0} >
+          <Toolbar style={{ justifyContent: 'space-between', paddingTop: '0.5rem' }} className='header' onChange={this.changeColor}>
             <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
-              <a id='link' href='#profile'> <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
+              <a id='link' href='#profile'><img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
             </Grid>
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="end"
               onClick={this.isOpen}
-              sx={{ mr: 0, display: { sm: 'none' } }}
+              sx={{ mr: 0, display: { sm: 'none' }, flexGorw: 1 }}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ color: this.state.color }} />
             </IconButton>
             <Grid
               variant="h6"
@@ -74,21 +112,29 @@ export default class navBar extends React.Component {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
               <ul style={{ display: 'flex' }} >
                 <li className='navbar-options'>
-                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar'>
+                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar' id='link' style={{ color: this.state.color }} onChange={this.changeColor}>
                     Resume
                   </a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#profile' className='navbar'>Profile</a>
+                  <a id='link' href='#profile' className='navbar' style={{ color: this.state.color }}>About</a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#projects' className='navbar'>Projects</a>
+                  <a id='link' href='#projects' className='navbar' style={{ color: this.state.color }}>Projects</a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#technologies' className='navbar'>Technologies</a>
+                  <a id='link' href='#technologies' className='navbar' style={{ color: this.state.color }}>Technologies</a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#contact' className='navbar'>Contact Me</a>
+                  <a id='link' href='#contact' className='navbar' style={{ color: this.state.color }}>Contact Me</a>
+                </li>
+                <li className='navbar-options' >
+                  <label role="button" htmlFor="checkbox" className="switch header" style={{ backgroundColor: this.state.color }}>
+                    <input type="checkbox" id="checkbox" style={{ backgroundColor: this.state.color }} />
+                    <span className="switch__ball" />
+                    <i className="ri-sun-line switch__sun" style={{ backgroundColor: this.state.color }} />
+                    <i className="ri-moon-line switch__moon" style={{ backgroundColor: this.state.color }} />
+                  </label>
                 </li>
               </ul>
             </Box>
@@ -96,7 +142,7 @@ export default class navBar extends React.Component {
         </AppBar>
         <Box component="nav" >
           <Drawer
-          anchor='top'
+          anchor='right'
             variant="temporary"
             open={this.state.mobileOpen}
             onClose={this.isClose}
@@ -105,17 +151,21 @@ export default class navBar extends React.Component {
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', height: 300 }
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '50%', height: '100%' }
             }}
+            PaperProps={{ backgroundColor: 'black' }}
           >
-            <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: '2rem' }}>
+            <span style={styles.xIcon}>
+              <ClearIcon onClick={this.isClose} className='xIcon' style={{ marginRight: '0.5rem', cursor: 'pointer' }}/>
+            </span>
+            <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: 0 }}>
               <ul style={{ paddingLeft: 0 }}>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}>
                   <a href={Resume} target="_blank" rel="noreferrer" className='navbar' >
                     Resume
                   </a>
                 </li>
-                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#profile' style={{ color: 'black' }}>About</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>

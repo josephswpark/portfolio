@@ -1,10 +1,17 @@
-p {
-  color: #666;
+/* stylelint-disable selector-class-pattern */
+.xIcon:hover {
+  transform: rotate(90deg);
+  transition: all 0.25s ease-in-out;
+}
+
+ul {
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-options {
   list-style: none;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
   cursor: pointer;
   color: black;
 }
@@ -201,4 +208,55 @@ svg {
 
 li {
   line-height: 1.2rem;
+}
+
+#checkbox {
+  display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+  border: 2px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.switch > * {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.switch__ball {
+  left: 1px;
+  z-index: 10;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  border-radius: 50%;
+  transition: transform 0.5s cubic-bezier(0.52, -0.4, 0.27, 1.55);
+}
+
+.switch__sun {
+  left: 5px;
+}
+
+.switch__moon {
+  right: 5px;
+}
+
+#checkbox:checked + .switch__ball {
+  transform: translate(29px, -50%);
+}
+
+.dark {
+  background-color: black;
+}
+
+.white-text {
+  color: white;
 }

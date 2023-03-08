@@ -6,7 +6,6 @@ import { ActiveItem } from 'react-scroll-slider';
 import Projects from './pages/projects';
 import Contact from './pages/contact';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 export default class App extends React.Component {
@@ -21,7 +20,7 @@ export default class App extends React.Component {
           <div id='projects' className='projects'>
             <Projects />
           </div>
-          <div id='technologies' className='technologies'>
+          <div id='technologies'>
             <Technologies />
           </div>
           <div id='contact' className='contact'>
@@ -46,11 +45,11 @@ export default class App extends React.Component {
 
 function Copyright() {
   return (
-    <Typography style={{ fontFamily: 'Lato' }}variant="body2" color="text.secondary">
+    <p style={{ fontFamily: 'Lato' }} className='footer'>
       {'Handcrafted by Joseph Park © '}
       {' '}
       {new Date().getFullYear()}
       .
-    </Typography>
+    </p>
   );
 }
