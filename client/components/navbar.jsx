@@ -36,10 +36,11 @@ export default class navBar extends React.Component {
     this.state = {
       mobileOpen: false,
       activeLink: 'profile',
-      color: 'black'
+      color: ''
     };
     this.isOpen = this.isOpen.bind(this);
     this.isClose = this.isClose.bind(this);
+    this.changeColor = this.changeColor.bind(this);
   }
 
   isOpen() {
@@ -50,11 +51,35 @@ export default class navBar extends React.Component {
     this.setState({ mobileOpen: false });
   }
 
+  changeColor() {
+    const header = document.querySelector('.header');
+    const textColor = document.querySelector('#root');
+    const color = document.querySelector('.navbar-options');
+    const footer = document.querySelector('.footer');
+    const icons = document.querySelectorAll('#logo');
+    const body = document.querySelector('body');
+    header.classList.toggle('dark');
+    textColor.classList.toggle('white-text');
+    color.classList.toggle('white-text');
+    footer.classList.toggle('white-text');
+    body.classList.toggle('dark');
+
+    icons.forEach(i => {
+      i.classList.toggle('white-text');
+    });
+
+    if (this.state.color === '') {
+      this.setState({ color: 'white' });
+    } else {
+      this.setState({ color: '' });
+    }
+  }
+
   render() {
     return (
       <Box sx={{ display: 'flex' }} >
         <AppBar component="nav" theme={theme} color='third' elevation={0} >
-          <Toolbar style={{ justifyContent: 'space-between', marginTop: '1rem' }} >
+          <Toolbar style={{ justifyContent: 'space-between', paddingTop: '0.5rem' }} className='header' onChange={this.changeColor}>
             <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
               <a id='link' href='#profile'> <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
             </Grid>
@@ -77,28 +102,28 @@ export default class navBar extends React.Component {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
               <ul style={{ display: 'flex' }} >
                 <li className='navbar-options'>
-                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar'>
+                  <a href={Resume} target="_blank" rel="noreferrer" className='navbar' id='link' style={{ color: this.state.color }} onChange={this.changeColor}>
                     Resume
                   </a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#profile' className='navbar'>Profile</a>
+                  <a id='link' href='#profile' className='navbar' style={{ color: this.state.color }}>About</a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#projects' className='navbar'>Projects</a>
+                  <a id='link' href='#projects' className='navbar' style={{ color: this.state.color }}>Projects</a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#technologies' className='navbar'>Technologies</a>
+                  <a id='link' href='#technologies' className='navbar' style={{ color: this.state.color }}>Technologies</a>
                 </li>
                 <li className='navbar-options'>
-                  <a id='link' href='#contact' className='navbar'>Contact Me</a>
+                  <a id='link' href='#contact' className='navbar' style={{ color: this.state.color }}>Contact Me</a>
                 </li>
-                <li className='navbar-options'>
-                  <label role="button" htmlFor="checkbox" className="switch">
-                    <input type="checkbox" id="checkbox" />
+                <li className='navbar-options' >
+                  <label role="button" htmlFor="checkbox" className="switch header" style={{ backgroundColor: this.state.color }}>
+                    <input type="checkbox" id="checkbox" style={{ backgroundColor: this.state.color }} />
                     <span className="switch__ball" />
-                    <i className="ri-sun-line switch__sun" />
-                    <i className="ri-moon-line switch__moon" />
+                    <i className="ri-sun-line switch__sun" style={{ backgroundColor: this.state.color }} />
+                    <i className="ri-moon-line switch__moon" style={{ backgroundColor: this.state.color }} />
                   </label>
                 </li>
               </ul>
@@ -126,7 +151,7 @@ export default class navBar extends React.Component {
                     Resume
                   </a>
                 </li>
-                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#profile' style={{ color: 'black' }}>Profile</a></li>
+                <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#profile' style={{ color: 'black' }}>About</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#projects' style={{ color: 'black' }}>Projects</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#technologies' style={{ color: 'black' }}>Technologies</a></li>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}><a className='navbar' id='link' href='#contact' style={{ color: 'black' }}>Contact Me</a></li>

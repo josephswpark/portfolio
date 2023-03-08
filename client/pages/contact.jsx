@@ -20,13 +20,13 @@ export default class Contact extends React.Component {
           <Box >
             <ul style={{ display: 'flex', justifyContent: 'center', paddingLeft: '2rem' }}>
               <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
-                <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
+                <LinkedInIcon fontSize='large' className='logo-button' id='logo' /></IconButton>
               </li>
               <li style={{ marginRight: 0 }} className='navbar-options'><IconButton style={{ padding: 0 }} disableRipple href="https://github.com/josephswpark" target="_blank">
-                <GitHubIcon fontSize='large' className='logo-button' /></IconButton>
+                <GitHubIcon fontSize='large' className='logo-button' id='logo' /></IconButton>
               </li>
               <li className='navbar-options'><IconButton disableRipple style={{ padding: 0 }} href="mailto:park.josephsw@gmail.com?subjust=subject text">
-                <MailOutlineIcon fontSize='large' className='logo-button' /></IconButton>
+                <MailOutlineIcon fontSize='large' className='logo-button' id='logo' /></IconButton>
               </li>
             </ul>
           </Box>
