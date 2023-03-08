@@ -12,6 +12,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Grid from '@mui/material/Grid';
 import Logo from '../../server/public/P.png';
 import Resume from '../../server/public/resume.pdf';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const theme = createTheme({
   palette: {
@@ -29,6 +30,15 @@ const theme = createTheme({
     }
   }
 });
+
+const styles = {
+  xIcon: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginTop: '0.5rem',
+    marginRight: 0
+  }
+};
 
 export default class navBar extends React.Component {
   constructor(props) {
@@ -81,16 +91,16 @@ export default class navBar extends React.Component {
         <AppBar component="nav" theme={theme} color='third' elevation={0} >
           <Toolbar style={{ justifyContent: 'space-between', paddingTop: '0.5rem' }} className='header' onChange={this.changeColor}>
             <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
-              <a id='link' href='#profile'> <img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
+              <a id='link' href='#profile'><img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
             </Grid>
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="end"
               onClick={this.isOpen}
-              sx={{ mr: 0, display: { sm: 'none' } }}
+              sx={{ mr: 0, display: { sm: 'none' }, flexGorw: 1 }}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ color: this.state.color }} />
             </IconButton>
             <Grid
               variant="h6"
@@ -132,7 +142,7 @@ export default class navBar extends React.Component {
         </AppBar>
         <Box component="nav" >
           <Drawer
-          anchor='top'
+          anchor='right'
             variant="temporary"
             open={this.state.mobileOpen}
             onClose={this.isClose}
@@ -141,10 +151,14 @@ export default class navBar extends React.Component {
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', height: 300 }
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '50%', height: '100%' }
             }}
+            PaperProps={{ backgroundColor: 'black' }}
           >
-            <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: '2rem' }}>
+            <span style={styles.xIcon}>
+              <ClearIcon onClick={this.isClose} className='xIcon' style={{ marginRight: '0.5rem', cursor: 'pointer' }}/>
+            </span>
+            <Box onClick={this.isClose} sx={{ textAlign: 'center', mt: 0 }}>
               <ul style={{ paddingLeft: 0 }}>
                 <li style={{ marginBottom: '1rem', listStyle: 'none' }}>
                   <a href={Resume} target="_blank" rel="noreferrer" className='navbar' >

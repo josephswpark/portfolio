@@ -9,24 +9,6 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
 export default class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     color: '',
-  //     textColor: ''
-  //   };
-  //   this.colorChange = this.colorChange.bind(this);
-  // }
-
-  // colorChange() {
-  //   if (this.state.color === '') {
-  //     this.setState({ color: 'black' });
-  //   } else {
-  //     this.setState({ color: '' });
-  //     this.setState({ textColor: 'white' });
-  //   }
-  // }
-
   render() {
     return (
       <>
