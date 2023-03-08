@@ -61,13 +61,13 @@ export default class AboutMe extends React.Component {
         <Box sx={{ display: { xs: 'none', xl: 'block' } }}>
           <ul style={{ justifyContent: 'center', paddingLeft: 0, alignItems: 'center', marginBottom: 0, marginTop: '4rem' }}>
             <li style={{ marginBottom: '1.5rem' }} className='navbar-options'><IconButton disableRipple href="https://www.linkedin.com/in/josephswpark/" target="_blank">
-              <LinkedInIcon fontSize='large' className='logo-button' /></IconButton>
+              <LinkedInIcon fontSize='large' className='logo-button' id='logo' /></IconButton>
             </li>
             <li style={{ marginBottom: '1.5rem' }} className='navbar-options'><IconButton disableRipple href="https://github.com/josephswpark" target="_blank">
-              <GitHubIcon fontSize='large' className='logo-button' /></IconButton>
+              <GitHubIcon fontSize='large' className='logo-button' id='logo' /></IconButton>
             </li>
             <li className='navbar-options'><IconButton disableRipple href="mailto:park.josephsw@gmail.com?subjust=subject text">
-              <MailOutlineIcon fontSize='large' className='logo-button' /></IconButton>
+              <MailOutlineIcon fontSize='large' className='logo-button' id='logo' /></IconButton>
             </li>
           </ul>
         </Box>
