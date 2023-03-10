@@ -10,7 +10,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Grid from '@mui/material/Grid';
-import Logo from '../../server/public/P.png';
+// import Logo from '../../server/public/P.png';
 import Resume from '../../server/public/resume.pdf';
 import ClearIcon from '@mui/icons-material/Clear';
 
@@ -46,7 +46,8 @@ export default class navBar extends React.Component {
     this.state = {
       mobileOpen: false,
       activeLink: 'profile',
-      color: ''
+      color: '',
+      background: ''
     };
     this.isOpen = this.isOpen.bind(this);
     this.isClose = this.isClose.bind(this);
@@ -79,9 +80,10 @@ export default class navBar extends React.Component {
     });
 
     if (this.state.color === '') {
-      this.setState({ color: 'white' });
+      this.setState({ color: 'white', background: '#e3ded9' });
+
     } else {
-      this.setState({ color: '' });
+      this.setState({ color: '', background: '' });
     }
   }
 
@@ -91,7 +93,9 @@ export default class navBar extends React.Component {
         <AppBar component="nav" theme={theme} color='third' elevation={0} >
           <Toolbar style={{ justifyContent: 'space-between', paddingTop: '0.5rem' }} className='header' onChange={this.changeColor}>
             <Grid sx={{ flexGrow: 1, display: { sm: 'none' } }}>
-              <a id='link' href='#profile'><img src={Logo} style={{ width: 125, paddingTop: '0.5rem' }} /></a>
+              <a type='button' href='#profile' className='button' style={{ border: '2px solid ' + this.state.background }}>
+                <span>JOSEPH PARK</span>
+              </a>
             </Grid>
             <IconButton
               color="inherit"
@@ -107,7 +111,10 @@ export default class navBar extends React.Component {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             >
-              <a id='link' href='#profile'> <img src={Logo} style={{ width: 150, paddingTop: '0.5rem' }} /></a>
+              <a href='#profile' className='button' style={{ border: '2px solid ' + this.state.background }}>
+                <span >JOSEPH PARK
+                </span>
+              </a>
             </Grid>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="navbar-container" >
               <ul style={{ display: 'flex' }} >

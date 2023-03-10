@@ -23,10 +23,38 @@ a {
 
 .navbar {
   padding-bottom: 0.25rem;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
 }
 
+.navbar:focus,
 .navbar:hover {
-  border-bottom: 3px solid #ab4e4f;
+  color: #ab4e4f;
+}
+
+.navbar::after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #ab4e4f;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 350ms;
+  transition-property: width, left;
+}
+
+.navbar:focus::after,
+.navbar:hover::after {
+  width: 100%;
+  left: 0%;
 }
 
 html {
@@ -140,8 +168,14 @@ svg {
 
 .logo-button:hover {
   color: #ab4e4f;
-  font-size: 3rem;
-  transition: 0.2s ease-out;
+  transform: scale(1.1);
+  outline: 2px solid #ab4e4f;
+  border-radius: 0.5rem;
+  box-shadow: 4px 5px 17px -4px #ab4e4f;
+}
+
+.logo-button:hover::before {
+  width: 250%;
 }
 
 .bounce {
@@ -259,4 +293,67 @@ li {
 
 .white-text {
   color: white;
+}
+
+.no-border {
+  border: none;
+}
+
+.button {
+  position: relative;
+  height: 50px;
+  padding: 6px 25px;
+  border: 2px solid #000;
+  background: white;
+  user-select: none;
+  white-space: nowrap;
+  transition: all 0.05s linear;
+  font-family: inherit;
+}
+
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  background: white;
+  transition: all 0.2s linear;
+}
+
+.button::before {
+  width: calc(100% + 6px);
+  height: calc(100% - 16px);
+  top: 8px;
+  left: -3px;
+}
+
+.button::after {
+  width: calc(100% - 16px);
+  height: calc(100% + 6px);
+  top: -3px;
+  left: 8px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.button:hover::before {
+  height: calc(100% - 32px);
+  top: 16px;
+}
+
+.button:hover::after {
+  width: calc(100% - 32px);
+  left: 16px;
+}
+
+.button span {
+  font-size: 15px;
+  z-index: 3;
+  position: relative;
+  font-weight: 600;
 }
